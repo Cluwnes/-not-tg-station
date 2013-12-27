@@ -290,11 +290,7 @@ var/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","Epsilon"
 
 //Absorbs the target DNA.
 /datum/changeling/proc/absorb_dna(mob/living/carbon/T)
-	shuffle_dna()
+	pop(absorbed_dna)
 	T.dna.real_name = T.real_name //Set this again, just to be sure that it's properly set.
 	absorbed_dna |= T.dna //And add the target DNA to our absorbed list.
 	absorbedcount++ //all that done, let's increment the objective counter.
-
-/datum/changeling/proc/shuffle_dna()//boots out the stalest DNA.
-	if(absorbed_dna.len)
-		absorbed_dna.Cut(1,2)

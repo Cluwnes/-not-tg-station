@@ -490,7 +490,7 @@ var/list/datum/dna/hivemind_bank = list()
 
 	if(changeling.can_absorb_dna(null, usr))
 		changeling.chem_charges -= 20
-		changeling.shuffle_dna()
+		changeling.pop(absorbed_dna)
 		changeling.absorbed_dna |= chosen_dna
 		src << "<span class='notice'>We absorb the DNA of [S] from the air.</span>"
 		feedback_add_details("changeling_powers","HD")
